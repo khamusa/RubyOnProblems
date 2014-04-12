@@ -32,10 +32,9 @@ shared_examples "palindrome_examples" do |proc|
 	end
 end
 describe String do
-	describe 'is_palindrome?' do 
+	describe 'palindrome strings' do 
 		include_examples "palindrome_examples", Proc.new { |string| string.is_palindrome? }
-	end
-	describe 'is_palindrome_2?' do 
 		include_examples "palindrome_examples", Proc.new { |string| string.is_palindrome_2? }
+		include_examples "palindrome_examples", Proc.new { |string| string.is_palindrome_3? }
 	end
 end
