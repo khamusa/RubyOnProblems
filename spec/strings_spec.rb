@@ -70,5 +70,6 @@ describe String do
 		end
 
 		include_examples "anagram_examples", Proc.new { |string, str_array| string.is_anagram?(str_array) }
+		include_examples "anagram_examples", Proc.new { |string, str_array| string.is_anagram2?(str_array) }
 	end
 end

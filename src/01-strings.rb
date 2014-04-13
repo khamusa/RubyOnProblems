@@ -22,6 +22,23 @@ class String
 		array.any? { |word| is_anagram_of_string(word) }
 	end
 
+	def is_anagram2?(array)
+		array.any? { |word| String.anagrams?(self, word) }
+	end
+
+	# more performant than is_anagram?
+	def self.anagrams?(str_a, str_b)
+		str_a = str_a.downcase
+		str_b = str_b.downcase
+		if str_a.length != str_b.length
+			false
+		else
+			counts = Hash.new(0)
+			str_a.each_char{ |c| counts[c] += 1 }
+			str_b.chars.none?{ |c| (counts[c] -= 1) < 0 }
+		end
+	end
+
 	private
 	def is_anagram_of_string str
 		downcase.split('').sort == str.downcase.split('').sort
