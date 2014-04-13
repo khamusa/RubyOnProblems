@@ -24,6 +24,6 @@ class String
 
 	private
 	def is_anagram_of_string str
-		downcase.scan(/\w/).sort == str.downcase.scan(/\w/).sort
+		downcase.split('').sort == str.downcase.split('').sort
 	end
 end
