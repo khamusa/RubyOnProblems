@@ -17,4 +17,13 @@ class String
 		return self[0..-2].is_palindrome_3? unless (self[-1] =~ /[[:alpha:][:digit:]]/)
 		self[0].downcase == self[-1].downcase && self[1..-2].is_palindrome_3?
 	end
+
+	def is_anagram?(array)
+		array.any? { |word| is_anagram_of_string(word) }
+	end
+
+	private
+	def is_anagram_of_string str
+		downcase.scan(/\w/).sort == str.downcase.scan(/\w/).sort
+	end
 end

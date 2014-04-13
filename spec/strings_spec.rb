@@ -37,4 +37,38 @@ describe String do
 		include_examples "palindrome_examples", Proc.new { |string| string.is_palindrome_2? }
 		include_examples "palindrome_examples", Proc.new { |string| string.is_palindrome_3? }
 	end
+
+	describe 'anagram strings' do 
+		shared_examples "anagram_examples" do |proc|
+
+			before :all do 
+				@dict = %w(pippo pluto cioccolato biscotto cavolo cavallo capelli capp2ello)
+			end
+			
+			it "returns true for simple anagrams" do
+				expect(proc.call("ppoip", @dict)).to be_true
+				expect(proc.call("otulp", @dict)).to be_true
+				expect(proc.call("ccociolato", @dict)).to be_true
+				expect(proc.call("vacolo", @dict)).to be_true
+				expect(proc.call("c2ppaello", @dict)).to be_true
+			end
+
+			it "returns false for non-anagrams" do
+				expect(proc.call("pspoip", @dict)).to be_false
+				expect(proc.call("otulzp", @dict)).to be_false
+				expect(proc.call("ccociolat", @dict)).to be_false
+				expect(proc.call("vaccolo", @dict)).to be_false
+			end	
+
+			it "returns true for different-case anagrams" do
+				expect(proc.call("pPoip", @dict)).to be_true
+				expect(proc.call("TULPO", @dict)).to be_true
+				expect(proc.call("CIOCCLATOO", @dict)).to be_true
+				expect(proc.call("COLOVA", @dict)).to be_true
+			end			
+
+		end
+
+		include_examples "anagram_examples", Proc.new { |string, str_array| string.is_anagram?(str_array) }
+	end
 end
