@@ -5,9 +5,8 @@ Solving many simple programming problems in ruby, offering, as much as possible,
 
 ### Index
 - src/01-strings.rb -> string exercises (like palindrome, anagram, etcettera)
-
+- src/02-anagram_dictionary.rb -> Reads a file of words and builds a preprocessed index for finding all anagrams of a given word.
 ### Future exercises / ideas of exercises
-- String#is_anagram
 - FizzBuzz Game
 - Implementation of some design patterns
 - Pathfinding algorithms over grids.
