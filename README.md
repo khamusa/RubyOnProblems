@@ -16,4 +16,5 @@ Solving many simple programming problems in ruby, offering, as much as possible,
 - The 7 queen's game
 
 More ideas:
+http://rubyquiz.com/
 http://rosettacode.org/wiki/Category:Ruby
